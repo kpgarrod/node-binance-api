@@ -8,7 +8,7 @@
 
 module.exports = function() {
     'use strict';
-    const WebSocket = require('ws');
+    //const WebSocket = require('ws');
     const request = require('request');
     const crypto = require('crypto');
     const stringHash = require('string-hash');
@@ -56,11 +56,9 @@ module.exports = function() {
         request(opt, function(error, response, body) {
             if ( !callback ) return;
 
-            if ( error )
-                return callback( error, {});
+            if ( error ) return callback( error, {});
 
-            if ( response && response.statusCode !== 200 )
-                return callback( response, {} );
+            if ( response && response.statusCode !== 200 ) return callback( response, {} );
 
             return callback( null, JSON.parse(body) );
         });
@@ -82,11 +80,9 @@ module.exports = function() {
         request(opt, function(error, response, body) {
             if ( !callback ) return;
 
-            if ( error )
-                return callback( error, {} );
+            if ( error ) return callback( error, {} );
 
-            if ( response && response.statusCode !== 200 )
-                return callback( response, {} );
+            if ( response && response.statusCode !== 200 ) return callback( response, {} );
 
             return callback( null, JSON.parse(body) );
         });
@@ -109,11 +105,9 @@ module.exports = function() {
         request(opt, function(error, response, body) {
             if ( !callback ) return;
 
-            if ( error )
-                return callback( error, {} );
+            if ( error ) return callback( error, {} );
 
-            if ( response && response.statusCode !== 200 )
-                return callback( response, {} );
+            if ( response && response.statusCode !== 200 ) return callback( response, {} );
 
             return callback( null, JSON.parse(body) );
         });
