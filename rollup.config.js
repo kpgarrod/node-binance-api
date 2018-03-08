@@ -1,6 +1,6 @@
 import builtins from 'rollup-plugin-node-builtins';
 import commonjs from 'rollup-plugin-commonjs';
-import nodeResolve from 'rollup-plugin-node-resolve';
+import resolve from 'rollup-plugin-node-resolve';
 import json from 'rollup-plugin-json';
 export default {
   input: 'node-binance-api.js',
@@ -18,10 +18,6 @@ export default {
     }),
     builtins(),
     json({preferConst: true}),
-    nodeResolve({
-      jsnext: true,
-      main: true,
-      preferBuiltins: true
-    })
+    resolve()
   ]
 }
